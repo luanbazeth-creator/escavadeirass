@@ -54,7 +54,6 @@
         <div class="toolbar"><input id="clientSearch" type="search" placeholder="Buscar cliente, máquina ou operador..."><button class="primary-button" id="addClientBtn">＋ Novo</button></div>
         <div class="status-filters" id="clientStatusFilters">
           <button class="filter-chip selected" data-filter="">Todos</button>
-          <button class="filter-chip" data-filter="Aguardando">Aguardando</button>
           <button class="filter-chip" data-filter="Agendado">Agendado</button>
           <button class="filter-chip" data-filter="Atendido">Atendido</button>
           <button class="filter-chip" data-filter="Recusado">Recusado</button>
@@ -108,6 +107,12 @@
       <div id="modalFields" class="form-fields"></div>
       <div class="modal-actions"><button type="button" class="secondary-button" id="cancelModal">Cancelar</button><button type="submit" class="primary-button">Salvar</button></div>
     </form>
+  </dialog>
+  <dialog id="paymentDialog" class="payment-dialog">
+    <div class="modal-heading"><div><span class="section-kicker">CONTROLE FINANCEIRO</span><h2 id="paymentDialogTitle">Pagamento do serviço</h2></div><button type="button" class="close-button" id="closePaymentDialog" aria-label="Fechar">×</button></div>
+    <div id="paymentDialogSummary"></div>
+    <div id="paymentDialogItems" class="payment-dialog-items"></div>
+    <div class="modal-actions"><button type="button" class="secondary-button" id="closePaymentDialogBottom">Fechar</button></div>
   </dialog>
   <dialog id="oilDialog" class="alert-dialog">
     <div class="alert-emblem">!</div><span class="section-kicker">ATENÇÃO À FROTA</span><h2 id="oilDialogTitle">Hora de trocar o óleo</h2><p id="oilDialogText"></p><p class="alert-explain">Confirme que recebeu o aviso. O alerta continuará visível até que a manutenção seja registrada.</p><button class="primary-button wide-button" id="ackOilBtn">OK, estou ciente</button>
