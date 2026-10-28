@@ -106,3 +106,6 @@ main, .view, .page-heading, .recent-panel, .profile-section { min-width:0; max-w
   padding: 14px;
   overflow-wrap: anywhere;
 }
+
+/* Ações rápidas na ficha do cliente */
+.client-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}.client-title-row h3{min-width:0;flex:1}.delete-client-button{flex:0 0 auto;border:1px solid #8d3d3d;background:#351b22;color:#ffb6b6;border-radius:8px;padding:6px 8px;font-size:10px;font-weight:700;cursor:pointer}.delete-client-button:active{transform:scale(.97)}
