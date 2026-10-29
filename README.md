@@ -1,57 +1,33 @@
-# 3ª Geração Terraplenagem — interface mobile
+# 3ª Geração Terraplenagem — projeto organizado
 
-## O que mudou nesta versão
-- Interface redesenhada para celular, inspirada na referência enviada: fundo escuro texturizado, azul, detalhes laranja e navegação inferior.
-- Início com cartões de acesso rápido.
-- Removida a agenda em calendário.
-- Clientes aparecem em cartões, como um catálogo/cardápio, com status editável.
-- O nome do cliente aparece primeiro; o botão “Editar cliente” fica logo abaixo do nome.
-- Removido o campo de e-mail do cadastro do cliente.
-- Ficha individual do cliente com máquinas, operador, horas e histórico de serviços.
-- Máquinas padrão: CASE, Hyundai, Sany e Caterpillar.
-- Lançamento de horas com cálculo pelo horímetro inicial/final.
-- Alertas de óleo e registro de troca. O intervalo inicial de 15.000 horas é apenas exemplo e deve ser ajustado conforme a orientação técnica de cada equipamento.
-- Exportação de backup em JSON.
+Aplicação web mobile-first para controlar clientes, serviços, máquinas, horas, manutenção e inventário de peças.
 
-## Como abrir
-1. Extraia o ZIP.
-2. Abra `index.html` no navegador ou use Live Server no Visual Studio Code.
-3. O sistema salva os dados no armazenamento local do navegador.
+## Estrutura do projeto
 
-## Importante
-Este é um protótipo front-end. Dados não são sincronizados entre celulares/computadores. Os perfis e permissões reais ainda precisam de Firebase Authentication, Cloud Firestore e regras de segurança. Não use o protótipo local como sistema multiusuário de produção.
+- `index.html` — **HTML**: estrutura das telas, formulários, diálogos e navegação.
+- `style.css` — **CSS**: identidade visual, componentes, responsividade e ajustes para celular.
+- `app.js` — **JavaScript**: regras de negócio, cadastros, cálculos, armazenamento local e eventos da interface.
+- `assets/terraplenagem-3a-geracao.jpeg` — imagem da identidade visual da empresa.
 
-## Arquivos
-- `index.html`: estrutura e navegação.
-- `style.css`: cores e layout responsivo.
-- `app.js`: cadastros, status, horas e alertas.
-- `assets/terraplenagem-3a-geracao.jpeg`: imagem da identidade visual fornecida.
+Os arquivos ficam separados por linguagem. O código JavaScript está dividido por seções com comentários para facilitar manutenção e futuras alterações.
 
-## Melhorias desta revisão
-- Ajustes responsivos para evitar a tela esticada e a rolagem horizontal em celulares.
-- Formulários adaptados a telas pequenas, com campos em uma coluna e controles maiores para toque.
-- Ao registrar horas, agora é obrigatório vincular o lançamento a um cliente, além de informar máquina, data, operador e horímetro inicial/final.
-- A ficha do cliente mostra as horas lançadas diretamente para ele e tem um botão para adicionar novos lançamentos.
-- A lista geral de horas identifica o cliente de cada lançamento.
+## Inventário inicial — Hyundai
 
+O inventário começa com estes sete tipos de filtro: filtro de motor, filtro de diesel, filtro da bomba de diesel, refil de filtro de diesel, filtro de suspiro, filtro de ar interno e filtro de ar externo. Cada item permite registrar entradas, saídas, quantidade disponível, limite de estoque baixo e observações.
 
-## Melhorias no registro de serviços
-- Registro com data inicial e final, cada uma acompanhada pelo horímetro correspondente.
-- Horas trabalhadas calculadas pelo horímetro final menos o inicial.
-- Valor da hora definido pelo responsável; o total é calculado automaticamente.
-- Forma de pagamento à vista ou parcelada em até 12 vezes.
-- Controle manual de parcelas pagas na ficha do cliente, incluindo a data do pagamento.
-- Máquina Caterpillar removida da lista padrão.
+## Como abrir no Visual Studio Code
 
-Observação: esta versão ainda salva dados no navegador deste aparelho. Para sincronizar dados entre aparelhos, é necessário integrar Firebase.
+1. Extraia o arquivo ZIP.
+2. Abra a pasta `escava_pro` no Visual Studio Code.
+3. Abra `index.html` usando a extensão **Live Server** ou um servidor web local.
+4. Edite o HTML, CSS e JavaScript no arquivo correspondente.
 
-## Publicar para abrir pelo celular (importante)
-O ZIP é o código-fonte, não é um endereço de site. Para abrir pelo celular com um link, publique a pasta `escava_pro` em um serviço de hospedagem estática, como Netlify Drop ou GitHub Pages. Depois de publicar, abra o link gerado no navegador do celular. Não basta enviar o arquivo ZIP pelo WhatsApp.
+## Como os dados são guardados
 
-### Opção simples com computador
-1. Extraia o ZIP.
-2. Abra o site Netlify Drop no navegador do computador: https://app.netlify.com/drop
-3. Arraste a pasta `escava_pro` extraída para a página (se não aceitar a pasta, compacte o conteúdo da pasta em um ZIP e envie esse ZIP).
-4. Aguarde o endereço público ser criado e abra esse endereço no celular.
+Esta versão utiliza `localStorage` do navegador. Os dados ficam no aparelho/navegador atual e não sincronizam automaticamente com outros celulares ou computadores. Para uso compartilhado, conecte Firebase Authentication e Cloud Firestore e configure regras de segurança.
 
-A publicação apenas disponibiliza o site na internet. Os dados ainda ficam guardados no navegador de cada aparelho; para compartilhar clientes, serviços e pagamentos entre aparelhos, será preciso conectar o Firebase.
+## Observações de manutenção
+
+- Faça uma cópia de segurança antes de alterações grandes.
+- Teste cadastro, edição, entradas/saídas do inventário e formulários após publicar.
+- Os intervalos de manutenção devem seguir a recomendação técnica do fabricante de cada máquina.
